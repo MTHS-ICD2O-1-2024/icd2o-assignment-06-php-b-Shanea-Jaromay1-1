@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-yellow.min.css" />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-amber.min.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
@@ -21,7 +21,6 @@
 
 <body>
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script src="./js/script.js"></script>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
@@ -29,21 +28,28 @@
       </div>
     </header>
     <main class="mdl-layout__content">
-      <div class="page-content">Get a joke, to make you laugh</div>
-      <br />
-      <form action="./answer.php" method="GET">
-        <br />
-        <div class="page-content">
-        </div>
-        <br />
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          JOKE
-        </button>
-      </form>
-      <br />
+      <div class="right-image">
+        <img src="./images/ reverse a numebr.jpeg" alt="reverse a number image" width="300" />
+      </div>
       <div class="page-content-answer">
-        <div id="answer"></div>
+        <div id="submit">
+          <?php
+          // input
+          $url = "https://official-joke-api.appspot.com/random_joke";
+          $json = file_get_contents($url);
+          $data = json_decode($json, true);
+
+          $setup = $data('setup');
+          $punchline = $data('punchline');
+
+          // output
+          echo 'Joke: ' . $setup . '.<br>';
+          echo 'Punchline: ' . $punchline . '<br>';
+          ?>
+        </div>
+      </div>
+      <div class="page-content-return">
+        <a href="./index.php">Return ...</a>
       </div>
     </main>
   </div>
