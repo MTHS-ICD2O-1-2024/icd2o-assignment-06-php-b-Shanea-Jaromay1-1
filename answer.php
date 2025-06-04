@@ -27,12 +27,8 @@
         <span class="mdl-layout-title">Random Jokes, in PHP</span>
       </div>
     </header>
-    <main class="mdl-layout__content">
-      <div class="right-image">
-        <img src="./images/ reverse a numebr.jpeg" alt="reverse a number image" width="300" />
-      </div>
       <div class="page-content-answer">
-        <div id="submit">
+        <div id="answer">
           <?php
           // input
           $url = "https://official-joke-api.appspot.com/random_joke";
