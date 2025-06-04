@@ -35,8 +35,8 @@
           $json = file_get_contents($url);
           $data = json_decode($json, true);
 
-          $setup = $data('setup');
-          $punchline = $data('punchline');
+          $setup = $data['setup'];
+          $punchline = $data['punchline'];
 
           // output
           echo 'Joke: ' . $setup . '.<br>';
